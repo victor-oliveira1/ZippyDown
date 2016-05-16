@@ -1,0 +1,13 @@
+#!/bin/bash
+# Variável b + 6 seguido da string "3"
+echo "Digite a URL do site Zippyshare:"
+read URL
+
+ID=`echo $URL|cut -d '/' -f5`
+BASE_URL=`echo $URL|cut -d '/' -f1-3`
+VARB=`curl $URL|grep 'var b'|cut -d ' ' -f8|rev|cut -d ';' -f2|rev`
+VARB=$((VARB+6))
+FN=`curl $URL|grep 'twitter:title'|cut -d '"' -f4`
+
+FINAL_URL=`echo ''"$BASE_URL"'/d/'"$ID"'/'"$VARB"'3/'"$FN"''`
+echo $FINAL_URL
