@@ -46,4 +46,4 @@ echo ''
 echo 'Iniciando download...'
 echo ''
 
-wget -q --show-progress -O "$FN" "$FINAL_URL" && echo ''; echo 'Download Concluído!'; echo ''
+wget -q --show-progress -O "$FN" "$FINAL_URL" && echo ''; echo 'Download Concluído!'; echo ''; echo "Arquivo salvo na pasta: $PWD"; echo ''
