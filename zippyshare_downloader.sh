@@ -3,6 +3,13 @@
 # victor.oliveira@gmx.com
 
 site=$(curl -s $1)
+
+echo "$site"|grep 'File has expired and does not exist anymore on this server' &> /dev/null
+if [ $? == 0 ]; then
+	echo "Este arquivo foi apagado do Zippyshare."
+	exit
+fi
+
 var_a=$(echo "$site"|grep -Eo var\ a\ \=\ [0-9]\+|cut -d ' ' -f4)
 var_b=$(echo "$site"|grep -Eo var\ b\ \=\ [0-9]\+|cut -d ' ' -f4)
 var_a_div=$(($var_a/3))
