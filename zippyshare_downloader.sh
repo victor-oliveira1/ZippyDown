@@ -15,8 +15,6 @@ var_b=$(echo "$site"|grep -Eo var\ b\ \=\ [0-9]\+|cut -d ' ' -f4)
 var_a_div=$(($var_a/3))
 var_final=$(($var_a+$var_a_div%$var_b))
 
-echo $var_a $var_b $var_final
-
 url=$(echo $1|sed 's\http://\\g'|cut -d '/' -f1)
 id=$(echo $1|sed 's\http://\\g'|cut -d '/' -f3)
 arq=$(echo "$site"|grep 'twitter:title'|cut -d '"' -f4)
