@@ -1,7 +1,7 @@
 # zippyshare_downloader
 Baixe arquivos do site zippyshare direto do terminal!
 
-![zippyshare_downloader](http://s32.postimg.org/92ieks61h/Captura_de_tela_de_2016_05_16_11_10_38.png)
+![zippyshare_downloader](https://s23.postimg.org/3zmxc9q8r/Captura_de_tela_de_2016_12_12_10_37_24.png)
 
 **Zippyshare_downloader** é um bash script que realiza o download de arquivo do site: **"http://zippyshare.com"** diretamente do terminal para seu computador, sem necessidade de nenhum navegador ou programas semelhantes.
 
@@ -10,11 +10,9 @@ Baixe arquivos do site zippyshare direto do terminal!
 >	*chmod +x ./zippyshare_downloader*
 
 **2**- Execute com o comando:
->	*./zippyshare_downloader*
+>	*./zippyshare_downloader 'link'*
 
-**3**- Insira a URL de download;
-
-**4**- O download será iniciado!
+**3**- O download será iniciado!
 
 ##Observações:
 Este script está em constante atualização. Funcionalidades podem ser adicionadas ou removidas a qualquer momento sem aviso.
