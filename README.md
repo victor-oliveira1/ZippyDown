@@ -14,6 +14,4 @@ Baixe arquivos do site zippyshare direto do terminal!
 
 **3**- O download será iniciado!
 
-##Observações:
-Este script está em constante atualização. Funcionalidades podem ser adicionadas ou removidas a qualquer momento sem aviso.
 Idéias ou sugestões podem ser enviadas para o email: victor.oliveira@gmx.com.
