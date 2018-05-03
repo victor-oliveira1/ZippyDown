@@ -25,11 +25,11 @@ var_final=$(($var1 % $var2 + $var3 % $var4))
 
 echo $var_a $var_b
 
-url=$(echo $1|sed 's\http://\\g'|cut -d '/' -f1)
-id=$(echo $1|sed 's\http://\\g'|cut -d '/' -f3)
+url=$(echo $1|sed 's\https://\\g'|cut -d '/' -f1)
+id=$(echo $1|sed 's\https://\\g'|cut -d '/' -f3)
 arq=$(echo "$site"|grep 'twitter:title'|cut -d '"' -f4)
 tam=$(echo "$site"|grep Size\:|cut -d\> -f4|cut -d\< -f1)
 
 echo -e "Baixando: $arq\tTamanho: $tam"
 
-wget -q --show-progress "http://$url/d/$id/$var_final/$arq"
+wget -q --progress=bar:force "https://$url/d/$id/$var_final/$arq"
