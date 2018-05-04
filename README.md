@@ -1,17 +1,8 @@
 # zippyshare_downloader
-Baixe arquivos do site zippyshare direto do terminal!
+Download files from Zippyshare directly from terminal!
 
 ![zippyshare_downloader](https://s23.postimg.org/3zmxc9q8r/Captura_de_tela_de_2016_12_12_10_37_24.png)
 
-**Zippyshare_downloader** é um bash script que realiza o download de arquivo do site: **"http://zippyshare.com"** diretamente do terminal para seu computador, sem necessidade de nenhum navegador ou programas semelhantes.
+**Zippyshare_downloader** its a Python3 script to download files from website: **"http://zippyshare.com"** directly from your terminal, without the need for web browsers.
 
-##Utilização:
-**1**- Dê permissões de execução ao script com o comando:
->	*chmod +x ./zippyshare_downloader*
-
-**2**- Execute com o comando:
->	*./zippyshare_downloader 'link'*
-
-**3**- O download será iniciado!
-
-Idéias ou sugestões podem ser enviadas para o email: victor.oliveira@gmx.com.
+Batch download mode is on development.
