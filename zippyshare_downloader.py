@@ -1,5 +1,9 @@
 #!/bin/python3
-#victor.oliveira@gmx.com
+#Copyright © 2018 Victor Oliveira <victor.oliveira@gmx.com>
+#This work is free. You can redistribute it and/or modify it under the
+#terms of the Do What The Fuck You Want To Public License, Version 2,
+#as published by Sam Hocevar. See the COPYING file for more details.
+
 from urllib import request
 from urllib import parse
 import re
@@ -29,7 +33,7 @@ args_parser.add_argument('url',
 args = args_parser.parse_args()
 
 url = args.url
-if not 'zippyshare.com/v/' and 'file.html' in url:
+if not 'zippyshare.com/v/' in url:
     print('Invalid URL')
     exit(1)
 
