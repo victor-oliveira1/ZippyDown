@@ -5,4 +5,4 @@ Download files from Zippyshare directly from terminal!
 
 **Zippyshare_downloader** its a Python3 script to download files from website: **"http://zippyshare.com"** directly from your terminal, without the need for web browsers.
 
-Batch download mode is on development.
+Much thanks to Borja Garcia (debuti)!
