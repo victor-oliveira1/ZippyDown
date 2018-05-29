@@ -1,5 +1,5 @@
 #!/bin/python3
-#Copyright © 2018 Victor Oliveira <victor.oliveira@gmx.com>
+#Copyright (C) 2018 Victor Oliveira <victor.oliveira@gmx.com>
 #This work is free. You can redistribute it and/or modify it under the
 #terms of the Do What The Fuck You Want To Public License, Version 2,
 #as published by Sam Hocevar. See the COPYING file for more details.
@@ -7,6 +7,7 @@
 from urllib import request
 from urllib import parse
 import re
+import os
 import argparse
 from html.parser import HTMLParser
 
@@ -27,40 +28,50 @@ def URLConvert(url, auth_number, filename):
     url += '/' + filename
     return url
 
-args_parser = argparse.ArgumentParser()
-args_parser.add_argument('url',
-                         help='URL to download')
-args = args_parser.parse_args()
+def dl(url):
+    if not 'zippyshare.com/v/' in url:
+        print('Invalid URL')
+        exit(1)
 
-url = args.url
-if not 'zippyshare.com/v/' in url:
-    print('Invalid URL')
-    exit(1)
+    print('Starting Zippyshare Downloader for %s...'%url)
 
-print('Starting Zippyshare Downloader...')
+    html_page = request.urlopen(url).read().decode()
+    html_parser = MyHTMLParser()
+    html_parser.feed(html_page)
 
-html_page = request.urlopen(url).read().decode()
-html_parser = MyHTMLParser()
-html_parser.feed(html_page)
+    download_link = re.findall('/d/.*;', html_parser.data)
+    auth_number = eval(re.findall('\(.*\)', download_link[0])[0])
+    filename_encoded = re.findall('"/.*"', download_link[0])[0].strip('"/')
+    filename = parse.unquote(filename_encoded)
 
-download_link = re.findall('/d/.*;', html_parser.data)
-auth_number = eval(re.findall('\(.*\)', download_link[0])[0])
-filename_encoded = re.findall('"/.*"', download_link[0])[0].strip('"/')
-filename = parse.unquote(filename_encoded)
+    url_download = URLConvert(url, auth_number, filename_encoded)
+    req_download = request.urlopen(url_download)
+    filesize = int(req_download.getheader('Content-Length'))
+    print('Downloading: {}'.format(filename))
+    print('Size: {:.2f}MB'.format(filesize / 1000 / 1000))
 
-url_download = URLConvert(url, auth_number, filename_encoded)
-req_download = request.urlopen(url_download)
-filesize = int(req_download.getheader('Content-Length'))
-print('Downloading: {}'.format(filename))
-print('Size: {:.2f}MB'.format(filesize / 1000 / 1000))
+    with open(filename, 'wb') as file:
+        c = 0
+        while True:
+            tmp = req_download.read(BUFFER)
+            if tmp:
+                file.write(tmp)
+                c += 1
+                print('{:.1f}%'.format((c * BUFFER / filesize) * 100), end='\r')
+            else:
+                break
 
-with open(filename, 'wb') as file:
-    c = 0
-    while True:
-        tmp = req_download.read(BUFFER)
-        if tmp:
-            file.write(tmp)
-            c += 1
-            print('{:.1f}%'.format((c * BUFFER / filesize) * 100), end='\r')
-        else:
-            break
+if __name__ == "__main__":
+    args_parser = argparse.ArgumentParser()
+    args_parser.add_argument('url',
+                             help='URL or file with URLs to download')
+    args = args_parser.parse_args()
+    url = args.url
+
+    if os.path.isfile(url):
+        with open(url) as fp:
+            for line in fp:
+                dl(line.rstrip())
+    else:
+        dl(url)
+
