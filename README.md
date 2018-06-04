@@ -21,7 +21,8 @@ And you need selenium module for Python 3:
 ## TODO LIST:  
 * Batch processing mode;
 * CTRL+C traps (Cleans tmp file);
-* Working with exceptions.  
+* Working with exceptions;  
+* URL validation.  
   
 Much thanks to Borja Garcia (debuti)!  
 For any problems, please send me an email: victor.oliveira@gmx.com
