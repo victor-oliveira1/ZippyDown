@@ -1,5 +1,5 @@
 # ZippyDown
-ZippyShare downloader using PhantomJS + selenium (Works on Windows, Linux and MAC)  
+ZippyShare downloader written in Python3 using PhantomJS + selenium (Works on Windows, Linux and MAC)  
   
 ***I've changed the name too (It's more stylish :D)***
 
