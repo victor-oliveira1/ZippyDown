@@ -9,8 +9,6 @@ ZippyShare downloader using PhantomJS + selenium (Works on Windows, Linux and MA
 
 NOTE: Zippyshare is changing the download algorithm regularly, and to bypass this problem once for all, i'm using PhantomJS + selenium.  
 
-Much thanks to Borja Garcia (debuti)!  
-For any problems, please send me an email: victor.oliveira@gmx.com  
 ## TODO LIST:  
 * Batch processing mode;
 * CTRL+C traps (Cleans tmp file);
@@ -23,4 +21,7 @@ You need to download PhantomJS and put in the PATH environment:
 [MAC](http://macappstore.org/phantomjs/)  
   
 And you need selenium module for Python 3:  
-[Selenium](https://pypi.org/project/selenium/)
+[Selenium](https://pypi.org/project/selenium/)  
+  
+Much thanks to Borja Garcia (debuti)!  
+For any problems, please send me an email: victor.oliveira@gmx.com
